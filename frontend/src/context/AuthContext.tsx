@@ -13,6 +13,8 @@ import { getCorrentAccount } from "../libs/services/apiAuth";
 
 export const API_URL = import.meta.env.VITE_API_URL;
 
+console.log(API_URL, "API_URL");
+
 export const $apiAuth = axios.create({
   withCredentials: true,
   baseURL: API_URL,
