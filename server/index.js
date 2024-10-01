@@ -61,11 +61,11 @@ app.get("/", (req, res) => {
   res.send("hello from server");
 });
 
-app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/photo", photoRouter);
-app.use("/api/v1/users", userRouter);
-app.use("/api/v1/chats", chatRouter);
-app.use("/api/v1/messages", messageRouter);
+app.use("/auth", authRouter);
+app.use("/photo", photoRouter);
+app.use("/users", userRouter);
+app.use("/chats", chatRouter);
+app.use("/messages", messageRouter);
 
 app.all("*", (req, res, next) => {
   next(new AppError(`Can dont use this ${req.originalUrl}`, 404));
