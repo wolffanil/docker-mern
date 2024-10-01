@@ -11,7 +11,8 @@ import {
 import { ChatType, UserType } from "../types";
 import { getCorrentAccount } from "../libs/services/apiAuth";
 
-export const API_URL = import.meta.env.VITE_API_URL;
+export const API_URL =
+  import.meta.env.VITE_API_URL || "http://31.129.59.181/backend/api/v1";
 
 console.log(API_URL, "API_URL");
 

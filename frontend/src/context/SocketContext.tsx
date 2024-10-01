@@ -46,7 +46,8 @@ type SocketContextType = {
 const SocketContext = createContext<SocketContextType | undefined>(undefined);
 
 let socket;
-const ENPOINT = import.meta.env.VITE_SOCKET_URL;
+const ENPOINT =
+  import.meta.env.VITE_SOCKET_URL || "http://31.129.59.181/backend/";
 
 const SocketProvider = ({ children }: { children: React.ReactNode }) => {
   const { user, selectedChat, setSelectedChat, setUser } = useAuthContext();
