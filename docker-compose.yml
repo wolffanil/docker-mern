@@ -19,7 +19,7 @@ services:
     image: mongo:latest
     environment:
       MONGO_INITDB_ROOT_USERNAME: "root"
-      MONGO_INITDB_ROOT_PASSWORD: "rootpass"
+      MONGO_INITDB_ROOT_PASSWORD: "root"
     ports:
       - "27017:27017"
     volumes:
@@ -39,9 +39,9 @@ services:
     environment:
       PORT: 8000
       NODE_ENV: "development"
-      URL_DB: "mongodb://root:rootpass@mongo:27017/db?retryWrites=true&w=majority"
-      CLIENT_URL: ""
-      SERVER_URL: ""
+      URL_DB: "mongodb://root:root@31.129.59.181:27017"
+      CLIENT_URL: "http://31.129.59.181"
+      SERVER_URL: "http://31.129.59.181"
       JWT_ACCESS_EXPIRES_IN: "15m"
       JWT_REFRESH_EXPIRES_IN: "7d"
       JWT_ACCESS_SECRET: "prakt-good-ready-and-good-not-let"
@@ -56,8 +56,8 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_API_URL: ""
-      VITE_SOCKET_URL: ""
+      VITE_API_URL: "http://31.129.59.181/api/v1"
+      VITE_SOCKET_URL: "http://31.129.59.181/"
 
 volumes:
   mongo-data:
