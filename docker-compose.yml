@@ -33,7 +33,7 @@ services:
       JWT_ACCESS_SECRET: "prakt-good-ready-and-good-not-let"
       JWT_REFRESH_SECRET: "gg-prak-very-bad-and-suck-tired"
       JWT_COOKIE_EXPIERS_IN: 7
-      command: ["wait-for-it", "mongo:27017", "--", "npm", "run", "start"]
+    command: ["wait-for-it", "mongo:27017", "--", "npm", "run", "start"]
 
   frontend:
     build:
