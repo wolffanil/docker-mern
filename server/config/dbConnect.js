@@ -1,10 +1,14 @@
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 mongoose.set("strictQuery", true);
 
 const connectToDatabase = async () => {
   try {
     if (mongoose.connection.readyState === 0) {
+      console.log(process.env.URL_DB, "URL_DB");
       await mongoose.connect(process.env.URL_DB);
 
       console.log("Успешное подключение к базе данных!");
