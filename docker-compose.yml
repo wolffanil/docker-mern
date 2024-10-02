@@ -6,6 +6,7 @@ services:
     image: nginx:stable-alpine
     ports:
       - "80:80"
+      - "433:433"
     volumes:
       - "./nginx.conf:/etc/nginx/nginx.conf"
       - "/etc/letsencrypt:/etc/letsencrypt"
@@ -40,8 +41,8 @@ services:
       PORT: 8000
       NODE_ENV: "development"
       URL_DB: "mongodb://root:root@31.129.59.181:27017"
-      CLIENT_URL: "http://31.129.59.181"
-      SERVER_URL: "http://31.129.59.181/backend"
+      CLIENT_URL: "https://debilgram.ru"
+      SERVER_URL: "https://api.debilgram.ru"
       JWT_ACCESS_EXPIRES_IN: "15m"
       JWT_REFRESH_EXPIRES_IN: "7d"
       JWT_ACCESS_SECRET: "prakt-good-ready-and-good-not-let"
@@ -56,8 +57,8 @@ services:
     depends_on:
       - backend
     environment:
-      VITE_API_URL: "http://31.129.59.181/backend/api/v1"
-      VITE_SOCKET_URL: "http://31.129.59.181/backend/"
+      VITE_API_URL: "https://api.debilgram.ru/api/v1"
+      VITE_SOCKET_URL: "https://api.debilgram.ru/"
 
 volumes:
   mongo-data:
