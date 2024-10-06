@@ -10,7 +10,7 @@ function LeftSidebar() {
       <h1 className="nav__title">
         {" "}
         <img src="/logo.svg" alt="logo" />
-        ДЕБИЛГРАММ 2
+        ДЕБИЛГРАММ 6
       </h1>
 
       {!settings ? (
