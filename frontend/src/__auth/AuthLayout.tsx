@@ -12,7 +12,7 @@ function AuthLayout() {
 
   if (isAuthenticated) navigate("/");
 
-  console.log(import.meta.env.VITE_PUBCLIC_GIT, "GIT 6");
+  console.log(import.meta.env.VITE_CHECK_URL, "GIT 6");
 
   return (
     <Wrapper>
