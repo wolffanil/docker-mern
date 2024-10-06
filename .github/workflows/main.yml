@@ -17,6 +17,6 @@ jobs:
           ssh-keyscan -H ${{ secrets.SERVER_IP }} > ~/.ssh/known_hosts
 
       - name: connect and pull
-        run: ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} "cd docker-mern && touch .env && echo URL_DB=${{ secrets.URL_DB}} >> .env && cd frontend && touch .env && echo VITE_CHECK_URL=${{ secrets.CHECK_SECRET }} >> .env && cd .. && git pull && docker compose up --build -d"
+        run: ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} "cd docker-mern && sudo killall nginx && touch .env && echo URL_DB=${{ secrets.URL_DB}} >> .env && cd frontend && touch .env && echo VITE_CHECK_URL=${{ secrets.CHECK_SECRET }} >> .env && cd .. && git pull && docker compose up --build -d"
       - name: cleanup
         run: rm -rf ~/.ssh
