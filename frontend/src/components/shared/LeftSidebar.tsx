@@ -6,7 +6,7 @@ import styled from "styled-components";
 function LeftSidebar() {
   const [settings, setSettings] = useState(false);
 
-  console.log(import.meta.env.VITE_PUBCLIC_GIT, "GIT 6");
+  console.log(import.meta.env.VITE_PUBCLIC_GIT, "GIT 9");
 
   return (
     <Nav>
