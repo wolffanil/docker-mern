@@ -1,32 +1,23 @@
-name: Deploy to Server
-
 on:
   push:
     branches:
-      - main 
-
+      - main
+  workflow_dispatch:
+  
 jobs:
-  deploy:
+  run_pull:
+    name: run pull
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-
-    - name: Set up SSH
+    - name: install ssh keys
       run: |
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > private_key
-        chmod 600 private_key
-        eval $(ssh-agent -s)
-        ssh-add private_key
-      shell: bash
-
-    - name: Run commands on Server
+        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.SERVER_IP }} > ~/.ssh/known_hosts
+    - name: connect and pull
       env: 
         CHECK_SECRET: ${{ secrets.CHECK_SECRET }}
-      run: |
-        ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.SERVER_IP }} << 'EOF'
-          cd docker-mern
-          git pull
-          docker compose up --build -d 
-        EOF
+      run: ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} "cd docker-mern && git pull && docker compose up --build -d"
+    - name: cleanup
+      run: rm -rf ~/.ssh
