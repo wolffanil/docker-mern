@@ -6,6 +6,8 @@ connectToDatabase();
 
 const port = process.env.PORT || 4000;
 
+console.log(process.env.CHECK_SECRET, "CHECK_SECRET");
+
 const server = app.listen(port, console.log(`server working on port ${port}`));
 
 const io = require("socket.io")(server, {

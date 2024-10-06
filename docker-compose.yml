@@ -32,8 +32,7 @@ services:
   backend:
     build:
       context: ./server
-    # ports:
-    #   - "8000:8000"
+
     volumes:
       - "./server/upload:/app/upload"
     networks:
@@ -51,6 +50,7 @@ services:
       JWT_ACCESS_SECRET: "prakt-good-ready-and-good-not-let"
       JWT_REFRESH_SECRET: "gg-prak-very-bad-and-suck-tired"
       JWT_COOKIE_EXPIERS_IN: 7
+      CHECK_SECRET: ${CHECK_SECRET}
 
   frontend:
     build:
