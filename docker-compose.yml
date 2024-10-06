@@ -32,8 +32,10 @@ services:
   backend:
     build:
       context: ./server
-    ports:
-      - "8000:8000"
+    # ports:
+    #   - "8000:8000"
+    volumes:
+      - "./server/upload:/app/upload"
     networks:
       - dev
     depends_on:
