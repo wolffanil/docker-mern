@@ -75,6 +75,8 @@ class AuthService {
       return next(new AppError("ошибка в токене", 404));
     }
 
+    console.log("refresh");
+
     const { ip } = body;
 
     const userData = await tokenService.validateRefreshToken(refreshToken);
