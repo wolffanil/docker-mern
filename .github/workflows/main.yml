@@ -3,21 +3,22 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
+
 jobs:
   run_pull:
     name: run pull
     runs-on: ubuntu-latest
-    
+
     steps:
-    - name: install ssh keys
-      run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SERVER_IP }} > ~/.ssh/known_hosts
-    - name: connect and pull
-      env: 
-        CHECK_SECRET: ${{ secrets.CHECK_SECRET }}
-      run: ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} "cd docker-mern && git pull && docker compose up --build -d"
-    - name: cleanup
-      run: rm -rf ~/.ssh
+      - name: install ssh keys
+        run: |
+          install -m 600 -D /dev/null ~/.ssh/id_rsa
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SERVER_IP }} > ~/.ssh/known_hosts
+      - name: connect and pull
+        env:
+          CHECK_SECRET: ${{ secrets.CHECK_SECRET }}
+          URL_DB: ${{ secrets.URL_DB }}
+        run: ssh ${{ secrets.USER }}@${{ secrets.SERVER_IP }} "cd docker-mern && git pull && docker compose up --build -d"
+      - name: cleanup
+        run: rm -rf ~/.ssh
