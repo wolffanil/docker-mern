@@ -12,6 +12,8 @@ function AuthLayout() {
 
   if (isAuthenticated) navigate("/");
 
+  console.log(import.meta.env.VITE_PUBCLIC_GIT, "GIT 6");
+
   return (
     <Wrapper>
       <LeftBlock>
