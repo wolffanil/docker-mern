@@ -21,6 +21,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: "root"
       MONGO_INITDB_ROOT_PASSWORD: "root"
+      MONGO_INITDB_DATABASE: "debilgram"
     ports:
       - "27017:27017"
     volumes:
@@ -31,8 +32,8 @@ services:
   backend:
     build:
       context: ./server
-    ports:
-      - "8000:8000"
+    # ports:
+    #   - "8000:8000"
     networks:
       - dev
     depends_on:
@@ -40,7 +41,7 @@ services:
     environment:
       PORT: 8000
       NODE_ENV: "development"
-      URL_DB: "mongodb://root:root@31.129.59.181:27017"
+      URL_DB: "mongodb://root:root@31.129.59.181:27017/debilgram"
       CLIENT_URL: "https://debilgram.ru"
       SERVER_URL: "https://api.debilgram.ru"
       JWT_ACCESS_EXPIRES_IN: "15m"
