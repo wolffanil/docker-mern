@@ -51,6 +51,7 @@ services:
       JWT_REFRESH_SECRET: "gg-prak-very-bad-and-suck-tired"
       JWT_COOKIE_EXPIERS_IN: 7
       CHECK_SECRET: ${CHECK_SECRET}
+      SDFD: "sdfsdf"
 
   frontend:
     build:
