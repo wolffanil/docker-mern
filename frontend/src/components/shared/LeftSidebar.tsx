@@ -5,12 +5,15 @@ import styled from "styled-components";
 
 function LeftSidebar() {
   const [settings, setSettings] = useState(false);
+
+  console.log(import.meta.env.VITE_PUBCLIC_GIT, "GIT 6");
+
   return (
     <Nav>
       <h1 className="nav__title">
         {" "}
         <img src="/logo.svg" alt="logo" />
-        ДЕБИЛГРАММ 6
+        ДЕБИЛГРАММ
       </h1>
 
       {!settings ? (
