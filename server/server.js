@@ -6,7 +6,7 @@ connectToDatabase();
 
 const port = process.env.PORT || 4000;
 
-console.log(process.env.CHECK_SECRET, "CHECK_SECRET 3");
+console.log(process.env.CHECK_SECRET, "CHECK_SECRET 4");
 
 const server = app.listen(port, console.log(`server working on port ${port}`));
 
