@@ -42,7 +42,6 @@ services:
     environment:
       PORT: 8000
       NODE_ENV: "development"
-      URL_DB: ${URL_DB}
       CLIENT_URL: "https://debilgram.ru"
       SERVER_URL: "https://api.debilgram.ru"
       JWT_ACCESS_EXPIRES_IN: "15m"
