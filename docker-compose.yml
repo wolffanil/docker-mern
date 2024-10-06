@@ -63,6 +63,5 @@ services:
     environment:
       VITE_API_URL: "https://api.debilgram.ru/api/v1"
       VITE_SOCKET_URL: "https://api.debilgram.ru/"
-      VITE_CHECK_URL: ${CHECK_SECRET}
 volumes:
   mongo-data:
